@@ -7,6 +7,6 @@ Will use housing market databases to train a model to predict housing prices. As
 Team members will communicate biweekly through slack and will meet through Zoom.
 
 ## Results
-
+These are the results using the Random Forrest Model:
 
 ## Summary 
