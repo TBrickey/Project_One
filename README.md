@@ -7,7 +7,9 @@ The team plans to examine the boston housing data set, conduct exploratory data 
 
 ### Questions to answer
 What features impact housing prices most?
+
 How is the house price data distributed?
+
 Does there appear to be any underlying bias in the data?
 
 
