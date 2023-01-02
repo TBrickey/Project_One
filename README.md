@@ -3,10 +3,10 @@
 ## Project Overview
 
 ### Reason
-The team plans to examine data related to house sales, conduct exploratory data analysis, train a model that can predict the final sale price of a house, and do feature analysis in order to gain insights. As aspiring future homeowners, we are intrested in learning what to look for when purchasing a house, and what variables we should consider important. 
+The team plans to examine the boston housing data set, conduct exploratory data analysis, and create and train a regression model that can predict the value of a house. As aspiring future homeowners, we are interested in learning what to look for when purchasing a house, and what variables we should consider important. This project hopes to use the housing data to answer the following questions and find insight into home values and their drivers. 
 
 ### Questions to answer
-What features will impact housing prices most?
+What features impact housing prices most?
 How is the house price data distributed?
 Does there appear to be any underlying bias in the data?
 
@@ -22,11 +22,11 @@ Team members will communicate biweekly through slack and will schedule additonal
 
 
 ### Model
-XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework. XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way.
+The data will be used to train a sklearn ensemble model: `RandomForestRegressor()`. The team will use the model to attempt to predict the value of a home based on the provided features, and to gain insights into what influences home values.
 
 
 ### Database
-AWS and Postgres connected with SQLAlchemy.
+A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions.
 
 
 ## Results
