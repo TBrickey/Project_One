@@ -29,6 +29,9 @@ The data will be used to train a sklearn ensemble model: `RandomForestRegressor(
 
 ### Database
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions.
+Team members created an ERD using QuickDB to display the relationships between the tables of our Boston Housing Data.
+
+![QuickDBD-Housing_ERD](https://user-images.githubusercontent.com/110629852/210471157-6e05f6f3-b603-432e-b429-fcaef75f71b5.png)
 
 
 ## Results
