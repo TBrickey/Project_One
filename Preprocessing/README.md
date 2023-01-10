@@ -1,110 +1,110 @@
 # Preprocessing the Data and Exporting to Database
 
 ## Overview
-The boston housing dataset is prepared for the analysis in the `housing_data_processing.ipynb` notebook, and inserted into the project database. The data is taken from a csv file and loaded into a pandas dataframe. Exploratory Data Analysis is conducted to select the target and feature variables and gain insight into the dataset. 
+The california housing dataset is prepared for the analysis in the `proc_cal_housing.ipynb` notebook, and inserted into the project database. The data is loaded into a pandas dataframe from a raw csv url. Exploratory Data Analysis is conducted to select the target and feature variables and gain insight into the dataset. Additional features are also created and placed in the database
 
 ### Data Source
-The original data was downloaded as a csv file titled `boston.csv` located at [The Boston House-Price Data](https://www.kaggle.com/datasets/fedesoriano/the-boston-houseprice-data)
+The dataset contains information collected from the 1990 Census concerning California home values, and was compiled and published by Pace, R. Kelley and Ronald Barry in *Sparse Spatial Autoregressions, Statistics and Probability Letters, 33 (1997) 291-297*. The dataset has been modified slightly for use here. Using the centroids of each block group the distance from the ocean is calculated and added as an additional feature: `ocean proximity`. This feature addition was performed by Aurélien Géron and published along with *Hands-On Machine Learning with Scikit-Learn and TensorFlow, O'Reilly Media, Inc, March 2017*.
+The data for the project can be found at: https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/housing.csv.
 
 ### Tools:
-Python, Pandas, Numpy, Pyplot, Seaborn, SQLAlchemy, psycopg2, Sklearn.train_test_split
+Python, Pandas, Numpy, Pyplot, Plotly, Seaborn, Cartopy, Geopy, SQLAlchemy, psycopg2, Sklearn
 
 
 ## Exploratory Data Analysis
 
 ### Shape:
-- The data set contains 14 feature observations for 506 houses.
-- There are no nulls in the dataset
+- The original dataset contains 10 feature observations for 20,640 samples.
+- Each sample is a california block group, the smallest geographical unit reported by the U.S. Census Bereau.
+- The average block group size in this data set is 1425.5 individuals.
 
 ### Variables
 
-The 14 total features are:
-1) CRIM: per capita crime rate by town
-2) ZN: proportion of residential land zoned for lots over 25,000 sq.ft.
-3) INDUS: proportion of non-retail business acres per town
-4) CHAS: Charles River dummy variable (1 if tract bounds river; 0 otherwise)
-5) NOX: nitric oxides concentration (parts per 10 million) (parts/10M)
-6) RM: average number of rooms per dwelling
-7) AGE: proportion of owner-occupied units built prior to 1940
-8) DIS: weighted distances to five Boston employment centres
-9) RAD: index of accessibility to radial highways
-10) TAX: full-value property-tax rate per $10,000 ($/10k)
-11) PTRATIO: pupil-teacher ratio by town
-12) B: The result of the equation B=1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
-13) LSTAT: % lower status of the population
-14) MEDV: Median value of owner-occupied homes in $1000's (k$)
+Features:
+- longitude: Centroid coordinate for each block group.
+- latitude: Centroid coordinate for each block group.
+- housing_median_age: Median age of houses within each block group.
+- total_rooms: Total number of rooms within each block group.
+- total_bedrooms: Total number of bedrooms within each block group.
+- population: Total number of people living within each block group.
+- households: Total number of households for each block group.
+- median_income: Median income for each block group measure in tens of thousands of US Dollars.
+- median_house_value: Median house value for each block group measured in US Dollars.
+- ocean_proximity: Categorical location of each block group based on proximity to the ocean.
+
+### Data Wrangling
+
+There are 207 missing values in the total_rooms column. Rather than lose these observations by dropping them, the missing values will be filled with the median value for total_rooms.
+To do this Sklearn's `SimpleImputer` is used with a median strategy.
+
+Additionally, an ID column is created to track each block group's features that are stored seperately in the database.
 
 ## Analysis
 
 ### Target Variable Analysis
 
-For this analysis the target variable is the Median value of the home: `MEDV`
+For this analysis the target variable is the Median house value for each block group: median_house_value
 
-- The house values are reported in 1000s
-- The mean house value is $22,532.81
-- The median house value is $21,200.00
-- The lower quartile valueis $17,025.00
-- The upper quartile value is $25,000.00
-- The max value is $50,000
-- The min value is $5,000
-- There are 16 houses with values of $50,000. This collection of potential outliers may skew results.
+- The mean house value is $206,855.81
+- The median house value is $179,700.00
+- The lower quartile valueis $119,600.00
+- The upper quartile value is $264,725.00
+- The max value is $500,001.00
+- The min value is $14,999.00
+- There are 965 observations with values of $50,000. This data has been censored, and dropping these potential outliers may improve model performance.
 
-Suggest: Results may be improved with removal of these values
+Suggest: Results may be improved with removal of the 965 censored values
 
 
 ### Feature Analysis
 
-Box plots are created for each feature, features with potential outliers:
-- CRIM, CHAS, ZN,  RM, DIS, B, PTRATIO, LSTAT
+The correlation values for the dataset are calculated:
+- A heatmap of the values is created visualize correlations.
+    - The population statistics(total_rooms, total_bedrooms, population, households) are all strongly correlated.
+    - The coordinates do not show significant correlations beyond each other.
+- A plot of correlation values for the target feature is created.
+    - median_income shows the highest correlation with the target feature.
+    - All other features appear to have an insiginificant correlation to the target feature.
 
-Distribution plots are created for each feature, features with skewed distributions:
-- CRIM, CHAS, ZN, DIS, RAD
+Each block group is plotted on a map of California using Cartopy and colored by Median House Value:
+- There are clusters of hotspots near the coast, revealing the ocean_proximity features genesis. 
+- These clusteres appear to be at the same locations as California's major urban centers.
 
-A correlation matrix is created, for which a heatmap and plot of absolute values is shown,  the features most correlated with MEDV in descending order:
-- RM: average number of rooms per dwelling = .7
-- LSTAT: % lower status of the population = -.74 (need more research on what this stat means)
-- PTRATIO: pupil-teacher ratio by town = -.51
-- INDUS: proportion of non-retail business acres per town = -.48
-- TAX: full-value property-tax rate per $10,000 ($/10k) = -.47
+Distribution of the categorical variable ocean_proximity is shown with a pie chart:
+- <1H OCEAN     9136
+- INLAND        6551
+- NEAR OCEAN    2658
+- NEAR BAY      2290
+- ISLAND           5
 
-Interesting insights:
-- INDUS and LSTAT appear to have some positive correlation
-- RM and LSTAT appear to have a some negative correlation
+The island category shows the highest average median house value, and the <1H OCEAN show the greatest sum of median house values.
 
-Least correlated features in ascending order:
-- CHAS: Charles River dummy variable (1 if tract bounds river; 0 otherwise) = .18
-- DIS: weighted distances to five Boston employment centres = .25
-- B: The result of the equation B=1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town = .33
-- ZN: proportion of residential land zoned for lots over 25,000 sq.ft. = .36
-- AGE: proportion of owner-occupied units built prior to 1940 = -.38
-- RAD: index of accessibility to radial highways = -.38
-- CRIM: per capita crime rate by town = -.39
-- NOX: nitric oxides concentration (parts per 10 million) (parts/10M) =  -.43
+A scatter plot is created to visualize correlation between Median Income and Median House Value:
+- mean         3.87
+- min          0.50
+- median       3.54
+- max          15.00
 
+### Feature Creation
 
-Suggest: Log tranform DIS to normalize distribution (https://www.kaggle.com/code/advikmaniar/xgboost-model-optimization-94-boston-housing)
+Mapping revealed a potential association with the distance of each block group from one of California's major cities and the median house value. The distance to the closest of one of four of California's major cities (Los Angeles, San Francisco, San Diego, San Jose) is calculated for each block group in miles using their centroid coordinates and geopy, and added as the feature `miles_nearest_major_city`
 
-Suggest: Scaling Features to take care of outliers and help normalize distributions. Use StandardScaler() or MinMaxScaler().
+The correlation among the population statistics inspired the addition of 3 more features that are relatively intuitive:
+- Population per Household: `pop_per_house`
+- Ratio of Bedrooms to Total Rooms: `bedrooms_per_rooms`
+- Rooms per Household: `rooms_per_house`
 
-Suggest: Potential for dropping CHAS from final training data due to outliers, heavy skew, and low correlation values.
+The correlation values are recalculated with the addition of the created features:
+- All 4 created features show better correlation values with the target feature than the majority of the original features.
+- `miles_nearest_major_city` shows a very strong correlation to the target feature, becoming the second strongest correlation.
 
-https://www.kaggle.com/code/kooaslansefat/fairness-evaluation-for-boston-house-price-pred
+Boxplots and Density plots are created for each numerical feature:
+- Scaling Features is necessary to accomodate widely varying scales, and to take care of outliers and help normalize distributions. 
+
  
-## Data Preperation
-
-- The data is kept in its original form for preliminary setup.
-- An ID column is added to the Data using the index
-- The data is split into training and testing sets with 80% training data and held in seperate tables.
-    - There are 404 training observations
-    - There are 102 test observations
-
-
 ## Database Export
 A connection is made to the database using SQLAlchemy, and data is inserted into each table in the Database:
-- The complete dataset: boston_housing_complete
-- The training data: boston_housing_training
-- The testing data: boston_housing_testing
+- A location table for each block group, `locations` containing the `id` `latitude` and `longitude` columns.
+- The original features `original_features`, containing the original features in the dataset.
+- The created features `created_features`, containing the newly created features.
 
-Csv files are also created for training and testing datasets.
-
-## Summary
