@@ -33,7 +33,7 @@ Queries are executed in pgAdmin to confirm successful transfer of data to the da
 ![insertion_png](https://github.com/TBrickey/Project_One/blob/Jacob/Database/Resources/insert_alchemy.png)
 
 ## Data Extraction
-A connection is made to the database using SQLAlchemy and the data necessary for training and testing the models is loaded into a pandas dataframe in the `Machine_Learing.ipynb` notebook. Each model is tested using two different versions of the dataset. The original features alone, and the original features joined with the created features. The join is executed using SQL queries.
+A connection is made to the database using SQLAlchemy and the data necessary for training and testing the models is loaded into a pandas dataframe in the `Machine_Learning.ipynb` notebook. Each model is tested using two different versions of the dataset. The original features alone, and the original features joined with the created features. The join is executed using SQL queries.
 
 *need join image*
 
