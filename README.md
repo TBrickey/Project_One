@@ -6,10 +6,10 @@
 The team plans to examine the california housing data set, conduct exploratory data analysis, and create and train a regression model that can predict the value of a house. As aspiring future homeowners, we are interested in learning what to look for when purchasing a house, and what variables we should consider important. This project hopes to use the housing data to answer the following questions and find insight into home values and their drivers.
 
 ### Questions to answer
-What features impact housing prices most?
-How is the house price data distributed?
-Does there appear to be any underlying bias in the data?
-How does RandomForest's performance compare to XGBoost's in this instance?
+- What features impact housing prices most?
+- How is the house price data distributed?
+- Does there appear to be any underlying bias in the data?
+- How does RandomForest's performance compare to XGBoost's in this instance?
 
 
 ### Data Source
