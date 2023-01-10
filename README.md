@@ -36,7 +36,7 @@ From this the project hopes to gain two things:
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions.
 A relationship diagram was created for the database.
 
-![ERD](https://github.com/TBrickey/Project_One/blob/Database/QuickDBD-Housing_ERD.png)
+![ERD](https://github.com/TBrickey/Project_One/blob/Jacob/Database/QuickDBD-Housing_ERD.png)
 
 ## Results
 ## Summary 
