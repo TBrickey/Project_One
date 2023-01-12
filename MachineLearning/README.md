@@ -39,7 +39,7 @@ In the `Machine_Learning_Full.ipynb` notebook each dataset is loaded into a pand
 
 - Categorical Feature Encoding: There is one categorical feature `ocean_proximity` that needs to be encoded. One hot encoding is performed on this feature using Sklearn OneHotEncoder.
 
-- Numerical Feature Scaling: Their is a wide range of scales in the data, as well as some skewness. Decision Trees are resistant to differing scales to a point, but given the extreme ranges the numerical features will be scaled using Sklearn StandardScaler to correct the scale imbalances and normalize the data.
+- Numerical Feature Scaling: There is a wide range of scales in the data, as well as some skewness. Decision Trees are resistant to differing scales to a point, but given the extreme ranges the numerical features will be scaled using Sklearn StandardScaler to correct the scale imbalances and normalize the data.
 
 - Splitting: The data is split into training and testing sets using Sklearn train_test_split. 20% of the data is held as a testing set. The final prepared training sets contain 16,512 observations. The dependent variable is passed to the splitting function in its raw format. 
 
