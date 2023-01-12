@@ -39,9 +39,9 @@ In the `Machine_Learning.ipynb` notebook each dataset is loaded into a pandas da
 
 ### Evaluation Metrics:
 
--RMSE(Root Mean Square Error): It is a measure of the squared difference between the prediction from our model and the actual value. Shown in the same scale as the dependent variable. This is the average error in US Dollars.
+- RMSE(Root Mean Square Error): It is a measure of the squared difference between the prediction from our model and the actual value. Shown in the same scale as the dependent variable. This is the average error in US Dollars.
 
--R²: It is the measure of variance found in the dependent variable that can be explained by the independent variables, with perfect predictions returning a value of 1.0. (goodness of fit) 
+- R²: It is the measure of variance found in the dependent variable that can be explained by the independent variables, with perfect predictions returning a value of 1.0. (goodness of fit) 
 
 ## Model Training
 For each Model and each Dataset:
