@@ -89,21 +89,21 @@ For each of the models the importances are visualized to gather information abou
 - Random Forest:
     - Original:
     
-    ![og_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_rf_importances.png)
+        - ![og_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_rf_importances.png)
 
     - Joined:
     
-    ![jo_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_rf_importances.png)
+        - ![jo_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_rf_importances.png)
 
 
 - XGBoost:
     - Original:
     
-    ![og_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_xg_importances.png)
+        - ![og_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_xg_importances.png)
 
     - Joined:
     
-    ![jo_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_xg_importances.png)
+        - ![jo_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_xg_importances.png)
 
 
 ## Further Feature Engineering
