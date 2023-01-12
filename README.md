@@ -24,12 +24,12 @@ Team members will communicate biweekly through slack and will schedule additonal
 
 
 ### Model
-Using this the data this project will train two models, RandomForestRegressor and XGBoostRegressor, to predict the value of a home based on the provided features as well as some newly created features. Each model will be tested for accuracy using these metrics:
+Using the data this project will train two models, RandomForestRegressor and XGBoostRegressor, to predict the value of a home based on the provided features as well as some newly created features. Each model will be tested for accuracy using these metrics:
 - RMSE(Root Mean Squared Error)
-- Variance Score
+- R²
 
 From this the project hopes to gain two things:
-- A model capable of accurately estimating the value of a house with at least 90% accuracy.
+- A model capable of accurately estimating the value of a house.
 - The feature importances of each model and their potential relationships to home values.  
 
 ### Database
