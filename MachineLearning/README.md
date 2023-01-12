@@ -32,7 +32,7 @@ Python, SqlAlchemy, Pandas, Pyplot, Numpy, Sklearn, XGBoost, IPython
 
 - Original Data: The features as taken from the source and housed in the database. This dataset is loaded with a database query to the table `original_features`connected through SQLAlchemy. All references to `original` pertain to this dataset in the `Machine_Learning_Full`.ipynb' notebook.
 
-- Created Features: In processing 4 new features are created and stored in the database in the table named `created_features`. To create this dataset a query is written to join these features with the original features in  PostgreSQL and executed with SQLAlchemy. All references to `joined` pertain to this dataset in the `Machine_Learning`.ipynb' notebook.
+- Created Features: In processing 4 new features are created and stored in the database in the table named `created_features`. To create this dataset a query is written to join these features with the original features in  PostgreSQL and executed with SQLAlchemy. All references to `joined` pertain to this dataset in the `Machine_Learning_Full`.ipynb' notebook.
 
 ## Final Processing
 In the `Machine_Learning_Full.ipynb` notebook each dataset is loaded into a pandas dataframe and the features are passed through three stages of processing in order to prepare them for the models. The dependent variable is excluded from processing until Splitting.
