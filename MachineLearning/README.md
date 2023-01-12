@@ -1,53 +1,104 @@
 # Machine Learning Model
 
 ## Overview
-This project will use the Random Forest Regression Model from scikit-learn. The model was chosen because:
-- The model is resistant to outliers, which our data contains.
-- It provides indicators of important features.
-
-The model will be used to predict home values based on the features provided. The team hopes to obtain a model that is capable of accurately estimated home values as well as insight into the importance of each feature in the value of a home. 
+In order to learn more about the california housing price data, as well as evaluate their performance in predicting the value of a home, two supervised learning models will be trained and tested using two seperate versions of the dataset.
+The goal of this is to produce a regression model that is capable of accurately predicting the value or price of a home based on these features. Additionally, the project hopes to use the data and the results of the models trained on it to uncover relationships in the value of a home and the present features. 
 
 ### Tools
-Python, SqlAlchemy, Pandas, Pyplot, Sklearn, Numpy
+Python, SqlAlchemy, Pandas, Pyplot, Numpy, Sklearn, XGBoost, IPython
 
-## Model Training
-The training and testing data is loaded from the database using SqlAlchemy in the `Random_Forest.ipynb` notebook, and used to train a `RandomForestRegressor()` model.
+### Models
 
-## Model Tuning and Evaluation
+- Scikit-learn: RandomForestRegressor
+    - Decision Tree: Fits a number of classifying decision trees and uses averaging to improve predictive accuracy and control over-fitting.
+    - Resistant to outliers, which the data contains.
+    - Trees are built independently at the same time
+    - It provides indicators of important features.
+- XGBoost: XGBoostRegressor
+    - Decision Tree: Fits gradient boosted trees. Where the gradient for each tree is calculated and used to improve the next tree.
+    - Trees are built sequentially, using the weights and gradients to improve the next tree.
+    - Resistant to outliers, which the data contains.
+    - It provides indicators of important features.
+
+### Training Data
+
+- Original Data: The features as taken from the source and housed in the database. This dataset is loaded with a database query to the table `original_features`connected through SQLAlchemy. All references to `original` pertain to this dataset in the `Machine_Learning`.ipynb' notebook.
+
+- Created Features: In processing 4 new features are created and stored in the database in the table named `created_features`. To create this dataset a query is written to join these features with the original features in  PostgreSQL and executed with SQLAlchemy. All references to `joined` pertain to this dataset in the `Machine_Learning`.ipynb' notebook.
+
+# Final Processing
+In the `Machine_Learning.ipynb` notebook each dataset is loaded into a pandas dataframe and the features are passed through three stages of processing in order to prepare them for the models. The dependent variable is excluded from processing until Splitting.
+
+- Categorical Feature Encoding: There is one categorical feature `ocean_proximity` that needs to be encoded. One hot encoding is performed on this feature using Sklearn OneHotEncoder.
+
+- Numerical Feature Scaling: Their is a wide range of scales in the data, as well as some skewness. Decision Trees are resistant to differing scales to a point, but given the extreme ranges the numerical features will be scaled using Sklearn StandardScaler to correct the scale imbalances and normalize the data.
+
+- Splitting: The data is split into training and testing sets using Sklearn train_test_split. 20% of the data is held as a testing set. The final prepared training sets contain 16,512 observations. The dependent variable is passed to the splitting function in its raw format. 
+
+- Last minute cleaning: XGBoost has problems with specific characters in feature titles, [] <>. Prior to feeding data into the XGBoost models these columns are renamed using pandas.replace()
 
 ### Evaluation Metrics:
 
--RMSE(Root Mean Square Error): It is a measure of the squared difference between the prediction from our model and the actual value.
--Feature importance based on mean decrease in impurity: feature importances are provided by the fitted attribute feature_importances_ and they are computed as the mean and standard deviation of accumulation of the impurity decrease within each tree.
+-RMSE(Root Mean Square Error): It is a measure of the squared difference between the prediction from our model and the actual value. Shown in the same scale as the dependent variable. This is the average error in US Dollars.
 
-### Original Model Evaluation:
-    - RMSE: 2.9213341600217184
-    - Feature Importances: 
-        - LSTAT      0.409262
-        - RM         0.398412
-        - DIS        0.048672
-        - CRIM       0.039876
-        - NOX        0.023577
-        - TAX        0.020019
-        - AGE        0.018786
-        - PTRATIO    0.012514
-        - INDUS      0.011419
-        - B          0.011349
-        - RAD        0.002834
-        - ZN         0.002207
-        - CHAS       0.001073
+-R²: It is the measure of variance found in the dependent variable that can be explained by the independent variables, with perfect predictions returning a value of 1.0. (goodness of fit) 
 
-### Tuning
-k-fold CV (cross validation)https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
-
-### Final Model Evaluation
-    - RMSE: 
-
-### Suggestions:
-
-- Model Change: The project may benefit from an XGBoostRegressor model. XGBoost is an implementation of the gradient tree boosting algorithm that is widely recognized for its efficiency and predictive accuracy.
+## Model Training
+For each Model and each Dataset:
+- A base model is created, trained, and evaluated for each dataset and model.
+- Hyperparameter tuning using RandomSearchCV is performed on each model with each dataset.
+    - A grid of parameters for each model is created.
+    - K-fold cross-validation is performed on 3 subsets of the data for 100 and 200 samples from the parameters grid.
+    - The best parameters found are collected
+- A final model is trained and used to make predictions and get final testing results.
+- Distribution and Value Plots are created for each tuned model to visualize the best performances.
 
 
+## Results
+
+![metrics_table]()
+
+### Tuned Model Results
+- Random Forest:
+    - Original Data:
+        - RMSE: 60369.881627
+        - R²: 0.735671
+    - Combined Data:
+        - RMSE: 53364.908971
+        - R²: 0.793455
+
+- XGBoost:
+    - Original Data:
+        - RMSE: 59353.576764
+        - R²: 0.744496
+    - Combined Data:
+        - RMSE: 51731.056427
+        - R²: 0.805908
+
+![R2_bar]()
+
+## Feature Importances
+
+- Random Forest:
+    - Original:
+    ![og_rf_importances]()
+
+    - Joined:
+    ![jo_rf_importances]()
+
+- XGBoost:
+    - Original:
+    ![og_xg_importances]()
+
+    - Joined:
+    ![jo_xg_importances]()
+
+
+## Further Feature Engineering
+
+The previous testing is conducted again, this time with the ommission of 965 censored values from the dependent variable. The ommission of these potential outliers had some negative and some positive effects on the models. Overall, the change resulted in lower R^2 scores and lower RMSEs.
+
+Additionally the data was tested again with a stratified split, this change had no discernable effects.
 
 
 
