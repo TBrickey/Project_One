@@ -56,7 +56,7 @@ For each Model and each Dataset:
 
 ## Results
 
-![metrics_table]()
+![metrics_table](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/metrics_table.png)
 
 ### Tuned Model Results
 - Random Forest:
@@ -75,23 +75,23 @@ For each Model and each Dataset:
         - RMSE: 51731.056427
         - R²: 0.805908
 
-![R2_bar]()
+![R2_bar](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/R2_bar.png)
 
 ## Feature Importances
 
 - Random Forest:
     - Original:
-    ![og_rf_importances]()
+    ![og_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_rf_importances.png)
 
     - Joined:
-    ![jo_rf_importances]()
+    ![jo_rf_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_rf_importances.png)
 
 - XGBoost:
     - Original:
-    ![og_xg_importances]()
+    ![og_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/og_xg_importances.png)
 
     - Joined:
-    ![jo_xg_importances]()
+    ![jo_xg_importances](https://github.com/TBrickey/Project_One/blob/Jacob/MachineLearning/Resources/jo_xg_importances.png)
 
 
 ## Further Feature Engineering
