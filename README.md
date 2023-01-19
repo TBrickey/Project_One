@@ -19,10 +19,6 @@ The data for the project can be loaded from: https://raw.githubusercontent.com/a
 
 More information about the original dataset can be found at: https://github.com/ageron/handson-ml2/tree/master/datasets/housing
 
-### Communication
-Team members will communicate biweekly through slack and will schedule additonal Zoom meetings as necessary.
-
-
 ### Model
 Using the data this project will train two models, RandomForestRegressor and XGBoostRegressor, to predict the value of a home based on the provided features as well as some newly created features. Each model will be tested for accuracy using these metrics:
 - RMSE(Root Mean Squared Error)
@@ -40,3 +36,6 @@ A relationship diagram was created for the database.
 
 ## Results
 ## Summary 
+
+Through our analysis we were able to identify key features homeowners were intresed in investing. Below is the presentaion sharing our findings:
+[Housing Analysis](https://docs.google.com/presentation/d/1al7iQjorKk0rlzWWw_5Z_s1t9EO_QB72bG_a10n2us4/edit?usp=sharing)
