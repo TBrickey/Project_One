@@ -1,9 +1,9 @@
 # Housing Analysis
 
 ## Project Overview
-### Reason
+#### Reason
 The objective of this project is to assess a California housing data set, conduct exploratory data analysis, and construct and train a regression model that can predict the value of a house based on specific parameters. As aspiring future homeowners, we are interested in learning what factors to consider when browsing potential homes and what variables are considered important. This project will use the housing data to answer the following questions and find insight into home values and their drivers.
-### Questions To Answer
+##### Questions To Answer
 
 •	What features impact housing prices the most?
 
