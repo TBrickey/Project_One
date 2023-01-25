@@ -23,16 +23,16 @@ More information about the original dataset can be found at: [Original Dataset](
 The original dataset contains 10 feature observations for 20,640 samples. Each sample is a California block group. A block group is the smallest geographical unit reported by the U.S. Census Bureau, and the average block group size in this data set is 1425.5 individuals. The features we included during this analysis were longitude, latitude, median housing age, total rooms, total bedrooms, population, households, median income, median house value, and ocean proximity. One of the features, total rooms, had 207 missing values. Sklearn's SimpleImputer is used with a median strategy to fill the missing values with the median value for total rooms so these values could still be included in our observations. Additionally, an ID column is created to track each block group's features that are stored separately in the database. For this analysis the target variable is the Median house value for each block group.
 
 More information on our Preprocessing found here: [Preprocessing/README.md](https://github.com/TBrickey/Project_One/blob/main/Preprocessing/README.md) 
-### Database
+#### Database
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions. A relationship diagram was created for the database.
  
 
-### Feature Analysis
+#### Feature Analysis
 A heatmap is created to visualize the correlation values calculated for the dataset. The heatmap displayed a strong correlation between population statistics: total rooms, total bedrooms, population, and households, but no significant correlation beyond each other. A plot of correlation values for the target feature is created. This determined that median income displayed the highest correlation with the target feature while all other features were insignificant to the target feature.
 Feature Creation
 The heatmap revealed a potential association with the distance of each block group from one of California's major cities and the median house value. The distance to the closest of one of four of California's major cities (Los Angeles, San Francisco, San Diego, San Jose) is calculated for each block group in miles using their centroid coordinates and Geopy and added as the feature.
 
-### Data Export
+#### Data Export
 Data is inserted into three tables using SQLAlchemy. A location table is created for each block group, which contains the ID, latitude, and longitude columns.  
 More information on our Database found here: [Database/README.md](https://github.com/TBrickey/Project_One/blob/main/Database/README.md)
 
