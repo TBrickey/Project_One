@@ -10,7 +10,9 @@ The objective of this project is to assess a California housing data set, conduc
 •	How does RandomForest's performance compare to XGBoost's in this instance?
 ### Data Source
 The dataset contains information collected from the 1990 Census concerning California home values, and was compiled and published by Pace, R. Kelley and Ronald Barry in Sparse Spatial Autoregressions, Statistics and Probability Letters, 33 (1997) 291-297. The dataset has been modified slightly for use here. Using the centroids of each block group the distance from the ocean is calculated and added as an additional feature: ocean proximity. This feature addition was performed by Aurélien Géron and published along with Hands-On Machine Learning with Scikit-Learn and TensorFlow, O'Reilly Media, Inc, March 2017.
+
 The data for the project can be loaded from: [Final Dataset](https://raw.githubusercontent.com/ageron/handson-ml2/master/datasets/housing/housing.csv)
+
 More information about the original dataset can be found at: [Original Dataset](https://github.com/ageron/handson-ml2/tree/master/datasets/housing)
 
 ### Exploratory Data Analysis
