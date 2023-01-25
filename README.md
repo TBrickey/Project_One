@@ -26,7 +26,8 @@ More information on our Preprocessing found here: [Preprocessing/README.md](http
 #### Database
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions. A relationship diagram was created for the database.
  
- ![QuickDBD-Housing_ERD](https://user-images.githubusercontent.com/110629852/214704710-9acc4fa5-f064-4d5e-bd63-f92977c90b87.png)
+ <img width="384" alt="QuickDBD-Housing_ERD" src="https://user-images.githubusercontent.com/110629852/214705405-50e39581-3c12-45e4-a9b2-1c2829e0cf7f.png">
+
 
 
 #### Feature Analysis
