@@ -38,20 +38,38 @@ More information on our Database found here: [Database/README.md](https://github
 
 ## Model
 Using the data this project will train two models, RandomForestRegressor and XGBoostRegressor, to predict the value of a home based on the provided features as well as some newly created features. Each model will be tested for accuracy using these metrics:
+
 •	RMSE(Root Mean Squared Error)
+
 •	R²
 
 From this the project hopes to gain two things:
+
 •	A model capable of accurately estimating the value of a house.
+
 •	The feature importance of each model and their potential relationships to home values.
+
 More information on our Machine Learning model found here: [MachineLearning/README.md](https://github.com/TBrickey/Project_One/blob/main/MachineLearning/README.md)
 
 ## Results
-Using Cartopy, each block group is plotted on a map of California color coded by median house value. There are clusters of hotspots near the coast, which also appear to be at the same locations of California’s major urban centers. The island category showed the highest average median house value. 
+
+XGBoost’s performance was more accurate than RandomForests.
+Random Forest feature importances are provided by the fitted attribute feature_importances_ and they are computed as the mean and standard deviation of accumulation of the impurity decrease within each tree.
+XGBoost feature importances are provided by the fitted attribute plot_importances, ‘Gain’ is the improvement in accuracy brought by a feature to the branches it is on
+Random Forest importances  aligns with correlation values seen during the preliminary analysis.
+Here our created feature stand out as aids to the model.
+XG notes only the ocean proximity categorical variables Inland value. 
+This is a dense area of low home values found away from the coast. The blue area on the map
+Both Models highlight a notable feature, just the inverse. 
+The ocean proximity variable. 
+The proximity of a house to certain desirable locations is noted as a highly important feature when estimating the value of a house.
+
+Using Cartopy, each block group is plotted on a map of California color coded by median house value. There are clusters of hotspots near the coast, which also appear to be at the same locations of California’s major urban centers. 
+The island category showed the highest average median house value. 
 
 ## Summary
 Through our analysis we were able to identify key features homeowners were interested in investing in. 
-
+Those features were ocean proximity and major city proximity.
 
 Below is the presentation sharing our findings: [Housing Analysis](https://docs.google.com/presentation/d/1al7iQjorKk0rlzWWw_5Z_s1t9EO_QB72bG_a10n2us4/edit?usp=sharing)
 
