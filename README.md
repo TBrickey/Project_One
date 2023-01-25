@@ -4,9 +4,13 @@
 ### Reason
 The objective of this project is to assess a California housing data set, conduct exploratory data analysis, and construct and train a regression model that can predict the value of a house based on specific parameters. As aspiring future homeowners, we are interested in learning what factors to consider when browsing potential homes and what variables are considered important. This project will use the housing data to answer the following questions and find insight into home values and their drivers.
 ### Questions To Answer
+
 •	What features impact housing prices the most?
+
 •	How is the house price data distributed?
+
 •	Does there appear to be any underlying bias in the data?
+
 •	How does RandomForest's performance compare to XGBoost's in this instance?
 ### Data Source
 The dataset contains information collected from the 1990 Census concerning California home values, and was compiled and published by Pace, R. Kelley and Ronald Barry in Sparse Spatial Autoregressions, Statistics and Probability Letters, 33 (1997) 291-297. The dataset has been modified slightly for use here. Using the centroids of each block group the distance from the ocean is calculated and added as an additional feature: ocean proximity. This feature addition was performed by Aurélien Géron and published along with Hands-On Machine Learning with Scikit-Learn and TensorFlow, O'Reilly Media, Inc, March 2017.
