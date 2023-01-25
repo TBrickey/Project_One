@@ -26,6 +26,8 @@ More information on our Preprocessing found here: [Preprocessing/README.md](http
 #### Database
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions. A relationship diagram was created for the database.
  
+ ![QuickDBD-Housing_ERD](https://user-images.githubusercontent.com/110629852/214704710-9acc4fa5-f064-4d5e-bd63-f92977c90b87.png)
+
 
 #### Feature Analysis
 A heatmap is created to visualize the correlation values calculated for the dataset. The heatmap displayed a strong correlation between population statistics: total rooms, total bedrooms, population, and households, but no significant correlation beyond each other. A plot of correlation values for the target feature is created. This determined that median income displayed the highest correlation with the target feature while all other features were insignificant to the target feature.
@@ -49,6 +51,8 @@ From this the project hopes to gain two things:
 
 •	The feature importance of each model and their potential relationships to home values.
 
+<img width="317" alt="jo_xg_importances" src="https://user-images.githubusercontent.com/110629852/214704920-c1f79dbc-3dc5-43b7-b365-84792cb1be65.png">
+
 More information on our Machine Learning model found here: [MachineLearning/README.md](https://github.com/TBrickey/Project_One/blob/main/MachineLearning/README.md)
 
 ## Results
@@ -66,6 +70,7 @@ The proximity of a house to certain desirable locations is noted as a highly imp
 
 Using Cartopy, each block group is plotted on a map of California color coded by median house value. There are clusters of hotspots near the coast, which also appear to be at the same locations of California’s major urban centers. 
 The island category showed the highest average median house value. 
+
 
 ## Summary
 Through our analysis we were able to identify key features homeowners were interested in investing in. 
