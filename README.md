@@ -15,8 +15,9 @@ More information about the original dataset can be found at: https://github.com/
 
 ### Exploratory Data Analysis
 The original dataset contains 10 feature observations for 20,640 samples. Each sample is a California block group. A block group is the smallest geographical unit reported by the U.S. Census Bureau, and the average block group size in this data set is 1425.5 individuals. The features we included during this analysis were longitude, latitude, median housing age, total rooms, total bedrooms, population, households, median income, median house value, and ocean proximity. One of the features, total rooms, had 207 missing values. Sklearn's SimpleImputer is used with a median strategy to fill the missing values with the median value for total rooms so these values could still be included in our observations. Additionally, an ID column is created to track each block group's features that are stored separately in the database. For this analysis the target variable is the Median house value for each block group.
+
 More information on our Preprocessing found here: Preprocessing/README.md
-Database
+### Database
 A Relational Database from AWS will be established to hold the data for the project. The database instance will use postgres and be connected to pgAdmin4 for management. Data will be inserted and retreived using a SQLAlchemy and psycop2g connection engine along with pandas functions. A relationship diagram was created for the database.
  
 
@@ -45,5 +46,5 @@ Using Cartopy, each block group is plotted on a map of California color coded by
 Through our analysis we were able to identify key features homeowners were interested in investing in. 
 
 
- Below is the presentation sharing our findings: Housing Analysis
+ Below is the presentation sharing our findings: https://docs.google.com/presentation/d/1al7iQjorKk0rlzWWw_5Z_s1t9EO_QB72bG_a10n2us4/edit?usp=sharing
 
