@@ -46,5 +46,5 @@ Using Cartopy, each block group is plotted on a map of California color coded by
 Through our analysis we were able to identify key features homeowners were interested in investing in. 
 
 
- Below is the presentation sharing our findings: https://docs.google.com/presentation/d/1al7iQjorKk0rlzWWw_5Z_s1t9EO_QB72bG_a10n2us4/edit?usp=sharing
+Below is the presentation sharing our findings:  https://docs.google.com/presentation/d/1al7iQjorKk0rlzWWw_5Z_s1t9EO_QB72bG_a10n2us4/edit?usp=sharing
 
