@@ -52,7 +52,7 @@ From this the project hopes to gain two things:
 
 •	The feature importance of each model and their potential relationships to home values.
 
-<img width="317" alt="jo_xg_importances" src="https://user-images.githubusercontent.com/110629852/214704920-c1f79dbc-3dc5-43b7-b365-84792cb1be65.png">
+<img width="300" alt="jo_xg_importances" src="https://user-images.githubusercontent.com/110629852/214704920-c1f79dbc-3dc5-43b7-b365-84792cb1be65.png">
 
 More information on our Machine Learning model found here: [MachineLearning/README.md](https://github.com/TBrickey/Project_One/blob/main/MachineLearning/README.md)
 
