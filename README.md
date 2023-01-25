@@ -72,6 +72,8 @@ The proximity of a house to certain desirable locations is noted as a highly imp
 Using Cartopy, each block group is plotted on a map of California color coded by median house value. There are clusters of hotspots near the coast, which also appear to be at the same locations of California’s major urban centers. 
 The island category showed the highest average median house value. 
 
+<img width="224" alt="Screenshot (61)" src="https://user-images.githubusercontent.com/110629852/214706428-85540526-8b14-4557-85e9-cd01ddf8fc51.png">
+
 
 ## Summary
 Through our analysis we were able to identify key features homeowners were interested in investing in. 
